@@ -4,7 +4,8 @@ from . models import Libros
 # Create your views here.
 def index(request):
     libros = Libros.objects.all()
-    return render(request,'index.html',{'libros':libros})
+    context={'libros':libros}
+    return render(request,'index.html',context)
 
 def crear_libro(request):
     titulo = request.POST['titulo']
@@ -34,4 +35,4 @@ def eliminar_libro(request,id):
     return redirect('/')
 
 def agregar_libro(request):
-    return redirect(request,'agregar_libro.html')
+    return render(request,'crear_libro.html')
