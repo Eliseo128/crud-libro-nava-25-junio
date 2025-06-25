@@ -1,0 +1,36 @@
+{% extends 'master.html' %}
+{% block editBook %}
+<body>
+
+
+<div class="small_div">
+
+<div class="container">
+    <br>
+    <h2>Book List</h2>
+    <hr>
+
+    <form action="/actualizar_libro/{{ libro.id }}">
+
+        {% csrf_token %}
+
+        <label class="form-group" for="titulo">Tutulo: </label>
+        <input class="form-control" type="text" name="titulo" value="{{ libro.titulo }}" placeholder="{{ libro.titulo }}">
+
+        <label class="form-group" for="precio">Precio: </label>
+        <input class="form-control" type="text" name="price" value="{{ libro.price }}" placeholder="{{ libro.price }}">
+
+        <label class="form-group" for="autor">Autor: </label>
+        <input class="form-control" type="text" name="author" value="{{ libro.author }}" placeholder="{{ libro.author }}">
+        <br>
+
+        <input class="btn btn-primary" type="submit" value="/actualizar_libro/">
+
+    </form>
+
+
+</div>
+</div>
+
+</body>
+{% endblock %}

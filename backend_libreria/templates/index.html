@@ -1,0 +1,38 @@
+{% extends 'master.html' %}
+
+{% block index %}
+ <body>
+    <div class="container">
+        <h2>Book list</h2>
+        <hr>
+        <table class="table table-dark">
+            <thead>
+            <tr>
+                <th>Title</th>
+                <th>Price</th>
+                <th>Author</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+         
+            {% for libro in libros %}
+
+                <tr>
+                <td>{{libro.titulo}}</td>
+                <td>{{libro.precio}}</td>
+                <td>{{libro.autor  }}</td>
+
+                <td><a class="btn btn-info" href="/editar_libro/{{ libro.id }}">Editar</a>
+                    <a class="btn btn-danger" href="/eliminar_libro/{{ libro.id }}">DBorrar</a>
+                </td>
+
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        <a class="btn btn-primary" href="/agregar_libro/">Agregar Libro</a>
+    </div>
+
+ </body>
+{% endblock %}
